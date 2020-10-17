@@ -29,15 +29,16 @@ const useStyles = makeStyles(theme => ({
 
 const ShowFeedback = (props) => {
     const classes = useStyles();
-    const {name, comment, company, pic} = props.comment;
+    // const {name, comment, company, pic} = props.comment;
+    const {review} = props.comment;
     return (
         <main className="d-flex justify-content-center col-md-4">
             <Card className={classes.root} id="card">
                 <CardContent>
-                    <Avatar alt="Remy Sharp" src={pic} className={classes.large} style={{margin: "auto"}} /> 
-                    <h3 style={{textAlign: "center"}}>{name}</h3>
-                    <Typography variant="body2" component="p" style={{textAlign: "center"}}>{company}</Typography><br/>
-                    <Typography variant="body2" component="p" style={{textAlign: "center"}}>{comment}</Typography>
+                    <Avatar alt="Remy Sharp" className={classes.large} style={{margin: "auto"}} /> 
+                    <h3 style={{textAlign: "center"}}>{review.name}</h3>
+                    <Typography variant="body2" component="p" style={{textAlign: "center"}}>{review.companyName}</Typography><br/>
+                    <Typography variant="body2" component="p" style={{textAlign: "center"}}>{review.description}</Typography>
                 </CardContent>
             </Card>
         </main>

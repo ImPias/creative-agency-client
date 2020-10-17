@@ -4,9 +4,9 @@ import Logo from '../../../images/logos/logo.png';
 
 const Navbar = () => {
     return (
-        <nav class="navbar navbar-expand-lg navbar-light justify-content-around">
+        <nav className="navbar navbar-expand-lg navbar-light justify-content-around">
             <img src={Logo} style={{width: '200px'}} alt="" className="offset-md-1" />
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div className="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul className="navbar-nav ml-auto">
                      <li className="nav-item mr-5">
                          <a className="nav-link" href="/"> Home </a>

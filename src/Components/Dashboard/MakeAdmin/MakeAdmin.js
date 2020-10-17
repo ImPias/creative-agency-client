@@ -6,7 +6,7 @@ import Sidebar from '../Sidebar/Sidebar';
 const MakeAdmin = () => {
     const { register, handleSubmit, errors } = useForm();
     const onSubmit = data => {
-        fetch('http://localhost:5000/addAdmin', {
+        fetch('https://agile-tundra-08472.herokuapp.com/addAdmin', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)
@@ -32,7 +32,7 @@ const MakeAdmin = () => {
                 <form onSubmit={handleSubmit(onSubmit)} className="py-3">
                     <div className="form-row py-5 pl-5">
                         <div className="col">
-                            <input type="email" name="email" ref={register({ required: true })} class="form-control " />
+                            <input type="email" name="email" ref={register({ required: true })} className="form-control " />
                             {errors.email && <span className="error text-danger">Email is required</span>}
                         </div>
                         <div className="col">

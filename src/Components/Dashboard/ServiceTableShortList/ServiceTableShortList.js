@@ -3,7 +3,7 @@ import React from 'react';
 
 const ServiceTableShortList = ({ serviceTableData }) => {
     return (
-        <table class="table table-bordered ml-3 mt-4">
+        <table className="table table-bordered ml-3 mt-4">
             <thead>
                 <tr>
                     <th scope="col">Username</th>

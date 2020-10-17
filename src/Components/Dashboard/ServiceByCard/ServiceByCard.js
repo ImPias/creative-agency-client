@@ -10,13 +10,16 @@ const ServiceByCard = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const [serviceByCard, setServiceByCard] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/orderCard', {
+        fetch('https://agile-tundra-08472.herokuapp.com/orderCard', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify({ email: loggedInUser.email })
         })
             .then(res => res.json())
-            .then(data => setServiceByCard(data))
+            .then(data => {
+                console.log(data);
+                setServiceByCard(data);
+            })
     }, [])
     return (
         <div className="row">

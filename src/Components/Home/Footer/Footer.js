@@ -11,7 +11,7 @@ const Footer = () => {
             <div className="col-md-6" style={{paddingTop: '40px' , flex: 0}}>
                 <input type="text" className="form-control" id="formGroupExampleInput"  placeholder="Your Name"/><br/>
                 <input type="text" className="form-control" id="formGroupExampleInput2" placeholder="Your Company Name"/><br/>
-                <input type="text" className="form-control align-self-baseline" id="formGroupExampleInput2" placeholder="Message" style={{height: '300px'}}/><br/>
+                <input type="text" className="form-control align-self-baseline" id="formGroupExampleInput3" placeholder="Message" style={{height: '300px'}}/><br/>
                 <button className="btn btn-dark">Send</button>
             </div>
         </main>

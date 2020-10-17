@@ -14,7 +14,7 @@ const useStyles = makeStyles( theme => ({
     },
     root: {
         width: 275,
-        height: 275
+        height: 200
     },
     bullet: {
         display: 'inline-block',
@@ -31,16 +31,15 @@ const useStyles = makeStyles( theme => ({
 
 const Service = (props) => {
     const classes = useStyles();
-    const {id, title, details, pic} = props.list;
+    const { title, image } = props.list;
 
     return (
         <main className="d-flex justify-content-center col-md-4 col-sm-3">
-            <Link to={"/order/"+id} style={{textDecoration: 'none'}}>
+            <Link to={"/dashboard/order/"} style={{textDecoration: 'none'}}>
             <Card className={classes.root} id="card">
                 <CardContent>
-                    <Avatar alt="Remy Sharp" src={pic} className={classes.large} style={{margin: "auto"}} /> 
+                    <Avatar alt="Remy Sharp" src={`data:image/png;base64,${image.img}`} className={classes.large} style={{margin: "auto"}} /> 
                     <h3 style={{textAlign:"center"}}>{title}</h3>
-                    <Typography variant="body2" component="p" style={{textAlign:"center"}}>{details}</Typography>
                 </CardContent>
             </Card>
             </Link>

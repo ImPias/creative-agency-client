@@ -11,7 +11,7 @@ const Sidebar = () => {
     const [isAdmin, setIsAdmin] = useState(false);
 
     useEffect(() => {
-        fetch('http://localhost:5000/isAdmin', {
+        fetch('https://agile-tundra-08472.herokuapp.com/isAdmin', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify({ email: loggedInUser.email })
@@ -25,9 +25,9 @@ const Sidebar = () => {
             <Link to="/">
                 <img style={{width: "200px"}} className="brand-logo mt-3 ml-2" src={logo} alt="" />
             </Link>
-            <ul class="nav flex-column mt-5">
-                <li class="nav-item">
-                    <Link to="/dashboard" class="nav-link text-dark">
+            <ul className="nav flex-column mt-5">
+                <li className="nav-item">
+                    <Link to="/dashboard" className="nav-link text-dark">
                         <FontAwesomeIcon icon={faHome} className="mr-2" />
                         <span>Dashboard</span>
                     </Link>
@@ -35,20 +35,20 @@ const Sidebar = () => {
                 {
                     isAdmin ?
                 <div>
-                    <li class="nav-item">
-                        <Link to="/dashboard/serviceTableData" class="nav-link text-dark">
+                    <li className="nav-item">
+                        <Link to="/dashboard/serviceTableData" className="nav-link text-dark">
                             <FontAwesomeIcon icon={faShoppingBag} className="mr-2" />
                             <span>Service List</span>
                         </Link>
                     </li>
-                    <li class="nav-item">
-                        <Link to="/dashboard/addService" class="nav-link text-dark">
+                    <li className="nav-item">
+                        <Link to="/dashboard/addService" className="nav-link text-dark">
                             <FontAwesomeIcon icon={faPlus} className="mr-2" />
                             <span>Add Service</span>
                         </Link>
                     </li>
-                    <li class="nav-item">
-                        <Link to="/dashboard/makeAdmin" class="nav-link text-dark">
+                    <li className="nav-item">
+                        <Link to="/dashboard/makeAdmin" className="nav-link text-dark">
                             <FontAwesomeIcon icon={faUserAlt} className="mr-2" />
                             <span>Make Admin</span>
                         </Link>
@@ -56,20 +56,20 @@ const Sidebar = () => {
                 </div>
                 :
                 <div>
-                    <li class="nav-item">
-                        <Link to="/dashboard/order" class="nav-link text-dark">
+                    <li className="nav-item">
+                        <Link to="/dashboard/order" className="nav-link text-dark">
                             <FontAwesomeIcon icon={faCartPlus} className="mr-2" />
                             <span>Order</span>
                         </Link>
                     </li>
-                    <li class="nav-item">
-                        <Link to="/dashboard/serviceDataCard" class="nav-link text-dark">
+                    <li className="nav-item">
+                        <Link to="/dashboard/serviceDataCard" className="nav-link text-dark">
                             <FontAwesomeIcon icon={faShoppingBag} className="mr-2" />
                             <span>Service Card</span>
                         </Link>
                     </li>
-                    <li class="nav-item">
-                        <Link to="/dashboard/review" class="nav-link text-dark">
+                    <li className="nav-item">
+                        <Link to="/dashboard/review" className="nav-link text-dark">
                             <FontAwesomeIcon icon={faComment} className="mr-2" />
                             <span>Review</span>
                         </Link>

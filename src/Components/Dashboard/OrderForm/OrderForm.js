@@ -1,14 +1,11 @@
 import React from 'react';
 import { useState } from 'react';
-import { useHistory } from 'react-router-dom';
 import DashboardHeader from '../DashboardHeader/DashboardHeader';
 import { UserContext } from '../../../App';
 import { useContext } from 'react';
 import Sidebar from '../Sidebar/Sidebar';
 
 const OrderForm = () => {
-    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-    const history = useHistory();
     const [info, setInfo] = useState({ status: 'Pending' });
     const [file, setFile] = useState(null);
 
@@ -24,8 +21,7 @@ const OrderForm = () => {
     }
 
     const handleSubmit = (e) => {
-        const formData = new FormData()
-        console.log(info);
+        const formData = new FormData();
         formData.append('file', file);
         formData.append('name', info.name);
         formData.append('email', info.email);
@@ -34,13 +30,12 @@ const OrderForm = () => {
         formData.append('price', info.price);
         formData.append('status', info.status);
 
-        fetch('http://localhost:5000/addOrder', {
+        fetch('https://agile-tundra-08472.herokuapp.com/addOrder', {
             method: 'POST',
             body: formData
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 if (data) {
                     alert('Order added Successfully');
                 }
@@ -63,23 +58,23 @@ const OrderForm = () => {
                 <div className="pl-5 py-3" style={{ backgroundColor: '#F4F7FC', height: '100vh' }}>
                     <form onSubmit={handleSubmit} className="py-3">
                         <div className="form-group">
-                            <input onBlur={handleBlur} type="text" name="name" class="form-control w-50" placeholder="Enter Name" required />
+                            <input onBlur={handleBlur} type="text" name="name" className="form-control w-50" placeholder="Enter Name" required />
                         </div>
                         <div className="form-group">
-                            <input onBlur={handleBlur} type="email" name="email" class="form-control w-50" placeholder="Enter Email" required />
+                            <input onBlur={handleBlur} type="email" name="email" className="form-control w-50" placeholder="Enter Email" required />
                         </div>
                         <div className="form-group">
-                            <input onBlur={handleBlur} type="text" name="projectTitle" class="form-control w-50" placeholder="Enter Project Title" required />
+                            <input onBlur={handleBlur} type="text" name="projectTitle" className="form-control w-50" placeholder="Enter Project Title" required />
                         </div>
                         <div className="form-group">
-                            <textarea onBlur={handleBlur} name="projectDetails" class="form-control w-50" cols="12" rows="6" placeholder="Enter Project Details" required  ></textarea>
+                            <textarea onBlur={handleBlur} name="projectDetails" className="form-control w-50" cols="12" rows="6" placeholder="Enter Project Details" required  ></textarea>
                         </div>
                         <div className="form-row w-50">
                             <div className="col">
-                                <input onBlur={handleBlur} type="text" name="price" class="form-control " placeholder="Enter price" required />
+                                <input onBlur={handleBlur} type="text" name="price" className="form-control " placeholder="Enter price" required />
                             </div>
                             <div className="col mt-3">
-                                <input onChange={handleFileChange} type="file" class=" form-control  form-control-file" required />
+                                <input onChange={handleFileChange} type="file" className=" form-control  form-control-file" required />
                             </div>
                         </div>
                         <div className="form-group mt-3">

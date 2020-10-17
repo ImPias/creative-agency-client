@@ -17,7 +17,7 @@ const DashboardHeader = (props) => {
             <h3 className="pl-5">{props.title}</h3>
             <div className="d-flex pr-5">
                 <h5 className="mt-2 mr-2">{loggedInUser.name}</h5>
-                <button type="button" onClick={handleLogout} class="btn btn-primary">Logout</button>
+                <button type="button" onClick={handleLogout} className="btn btn-primary">Logout</button>
             </div>
         </div>
     );

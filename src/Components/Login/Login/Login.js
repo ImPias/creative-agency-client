@@ -20,7 +20,6 @@ const Login = () => {
         handleGoogleSignIn()
         .then(res => {
             if(res.success){
-                console.log(res);
                 handleResponse(res, true);
             } else {
                 alert(res.message);

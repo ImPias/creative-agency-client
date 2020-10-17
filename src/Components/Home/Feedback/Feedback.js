@@ -1,34 +1,42 @@
-import React from 'react';
-import picOne from '../../../images/customer-1.png';
-import picTwo from '../../../images/customer-2.png';
-import picThree from '../../../images/customer-3.png';
+import React, { useEffect } from 'react';
+import { useState } from 'react';
+// import picOne from '../../../images/customer-1.png';
+// import picTwo from '../../../images/customer-2.png';
+// import picThree from '../../../images/customer-3.png';
 import ShowFeedback from '../ShowFeedback/ShowFeedback';
 
-const review=[
-    {
-        id: 1,
-        name: 'Donald Trump',
-        comment: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, accusamus!",
-        company: 'CEO, Brain Campus',
-        pic: picOne
-    },
-    {
-        id: 2,
-        name: 'Norendro Modi',
-        comment: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, accusamus!",
-        company: 'CEO, Oregami Soluation',
-        pic: picTwo
-    },
-    {
-        id: 3,
-        name: 'Karlos Pike',
-        comment: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, accusamus!",
-        company: 'CEO, Leaders Board',
-        pic: picThree
-    }
-]
+// const review=[
+//     {
+//         id: 1,
+//         name: 'Donald Trump',
+//         comment: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, accusamus!",
+//         company: 'CEO, Brain Campus',
+//         pic: picOne
+//     },
+//     {
+//         id: 2,
+//         name: 'Norendro Modi',
+//         comment: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, accusamus!",
+//         company: 'CEO, Oregami Soluation',
+//         pic: picTwo
+//     },
+//     {
+//         id: 3,
+//         name: 'Karlos Pike',
+//         comment: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, accusamus!",
+//         company: 'CEO, Leaders Board',
+//         pic: picThree
+//     }
+// ]
 
 const Feedback = () => {
+    const [review, setReview] = useState([]);
+    
+    useEffect(()=>{
+        fetch('https://agile-tundra-08472.herokuapp.com/reviewList')
+        .then(res=> res.json())
+        .then(data=>setReview(data))
+    } ,[])
     return (
         <section>
             <div>

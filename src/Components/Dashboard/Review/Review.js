@@ -1,6 +1,5 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { useHistory } from 'react-router-dom';
 import DashboardHeader from '../DashboardHeader/DashboardHeader';
 import { UserContext } from '../../../App';
 import { useContext } from 'react';
@@ -9,10 +8,9 @@ import Sidebar from '../Sidebar/Sidebar';
 const Review = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const { register, handleSubmit, errors } = useForm();
-    const history = useHistory();
     const onSubmit = data => {
         const reviewDetails = { review: data };
-        fetch('http://localhost:5000/addReview', {
+        fetch('https://agile-tundra-08472.herokuapp.com/addReview', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -39,15 +37,15 @@ const Review = () => {
                 <DashboardHeader title='Review'></DashboardHeader>
                 <form onSubmit={handleSubmit(onSubmit)} className="py-5 pl-5">
                     <div className="form-group">
-                        <input type="text" defaultValue={loggedInUser.name} name="name" ref={register({ required: true })} class="form-control w-50" placeholder="Your Name" />
+                        <input type="text" defaultValue={loggedInUser.name} name="name" ref={register({ required: true })} className="form-control w-50" placeholder="Your Name" />
                         {errors.name && <span className="error text-danger">Name is required</span>}
                     </div>
                     <div className="form-group">
-                        <input type="text" name="companyName" ref={register({ required: true })} class="form-control w-50" placeholder="Company's Name, Designation" />
+                        <input type="text" name="companyName" ref={register({ required: true })} className="form-control w-50" placeholder="Company's Name, Designation" />
                         {errors.companyName && <span className="error text-danger">Company Name is required</span>}
                     </div>
                     <div className="form-group">
-                        <textarea name="description" ref={register({ required: true })} class="form-control w-50" cols="12" rows="6" placeholder="Description"  ></textarea>
+                        <textarea name="description" ref={register({ required: true })} className="form-control w-50" cols="12" rows="6" placeholder="Description"  ></textarea>
                         {errors.description && <span className="error text-danger">Description is required</span>}
                     </div>
 
